@@ -25,6 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
+    print_r($_POST);
+
        // Debugging: Imprimir los datos recibidos del formulario
     //    echo "Usuario recibido: " . $username . "<br>";
     //    echo "Contraseña recibida: " . $password . "<br>";
@@ -34,6 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Consulta SQL para verificar las credenciales
     $sql = "SELECT * FROM usuarios WHERE username='$username' AND password='$password'";
     $result = $conn->query($sql);
+
+    
+    print_r($result);
 
     if ($result->num_rows > 0) {
         // Usuario autenticado

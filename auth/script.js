@@ -3,7 +3,8 @@ $(document).ready(function(){
         event.preventDefault(); // Evitar el envío del formulario por defecto
         var username = $('#username').val();
         var password = $('#password').val();
-        
+
+        console.log(username, password);       
         $.ajax({
             type: 'POST',
             url: 'login.php',
@@ -11,6 +12,8 @@ $(document).ready(function(){
                 username: username,
                 password: password
             },
+
+           
             success: function(response){
                 if(response == "success"){
                     $('#message').html("Inicio de sesión exitoso");
@@ -19,6 +22,8 @@ $(document).ready(function(){
                     $('#message').html("Credenciales incorrectas");
                 }
             }
-        });
+        }); 
     });
 });
+
+// alert("hola");
